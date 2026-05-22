@@ -1,8 +1,8 @@
 {
     "id": null,
-    "name": "MODISA-OCSMART-POC-MONTHLY",
-    "title": "MODIS-Aqua Monthly Particulate Organic Carbon - OC-SMART AC",
-    "description": "The MODIS-Aqua monthly Particulate Organic Carbon concentration (POC, measured in mg·m-3) utilizes daily data from the MODIS sensor onboard NASA's Aqua satellite (MODIS-Aqua). This data has a nominal resolution of 1 km at nadir and is atmospherically corrected through the application of the Ocean Color - Simultaneous Marine and Aerosol Retrieval Tool (OC-SMART) (FAN et al., 2021). The POC estimates are obtained from the combination of algorithms (Loisel et al., 2002, 2018; Tran et al., 2016; Le et al., 2016). Subsequently, the POC products are aggregated into monthly averages by calculating the geometric mean of daily POC data over the respective month.",
+    "name": "MODISA-OCSMART-CHL-DAILY",
+    "title": "MODIS-Aqua Daily Chlorophyll-a - OC-SMART AC",
+    "description": "The MODIS-Aqua daily Chlorophyll-a concentration (CHL, measured in mg·m-3) utilizes daily data from the MODIS sensor onboard NASA's Aqua satellite (MODIS-Aqua). This data has a nominal resolution of 1 km at nadir and is atmospherically corrected using the Ocean Color - Simultaneous Marine and Aerosol Retrieval Tool (OC-SMART) (FAN et al., 2021). The CHL estimates are obtained from daily MODIS-Aqua remote sensing reflectance via the Combination Of Neural Network models in Estimating Chlorophyll-a over Turbid and Clear Waters (CONNECT) (TRAN et al., 2025). The daily CHL products are the mosaic of several images of CHL estimates obtained for the same day and merged into daily composites utilizing the SNAP mosaicking tool.",
     "temporal_composition_schema": {
         "cycle": {
             "step": 1,
@@ -10,7 +10,7 @@
         },
         "schema": "Cyclic",
         "step": 1,
-        "unit": "month"
+        "unit": "day"
     },
     "grid_ref_sys": null,
     "collection_type": "collection",
@@ -22,8 +22,8 @@
                 "roles": [
                     "producer"
                 ],
-                "processing:level": "L1",
-                "processing:lineage": "Generation and distribution of daily Level-1A radiance using the MODIS-Aqua earth observation satellite."
+                "processing:level": "L3",
+                "processing:lineage": "Generation of daily chlorophyll-a concentration estimatives based on CONNECT Neural Network models from MODIS-Aqua earth observation satellite."
             },
             {
                 "name": "National Institute for Space Research (INPE)",
@@ -33,7 +33,7 @@
                     "host"
                 ],
                 "processing:level": "L3",
-                "processing:lineage": "Generation of monthly particulate organic carbon concentration estimatives based on the combination of algorithms using the MODIS-Aqua earth observation satellite.",
+                "processing:lineage": "Generation of daily chlorophyll-a concentration estimatives based on CONNECT Neural Network models from MODIS-Aqua earth observation satellite.",
                 "processing:facility": "LOG",
                 "processing:software": {
                     "SEADAS": "9.1.0",
@@ -48,7 +48,7 @@
                     "processor"
                 ],
                 "processing:level": "L3",
-                "processing:lineage": "Generation of monthly particulate organic carbon concentration estimatives based on the combination of algorithms using the MODIS-Aqua earth observation satellite.",
+                "processing:lineage": "Generation of daily remote sensing reflectance estimatives based on MODIS-Aqua earth observation satellite.",
                 "processing:facility": "LOG",
                 "processing:software": {
                     "SEADAS": "9.1.0",
@@ -59,18 +59,18 @@
         ],
         "license": {
             "type": "Creative Commons Zero (CC0)",
-            "uri": "https://creativecommons.org/public-domain/cc0/"
+            "uri": "https://oceancolor.gsfc.nasa.gov/data/10.5067/AQUA/MODIS/L2/OC/2022.0/"
         }
     },
     "keywords": [
         "modis",
         "aqua",
         "level-3",
-        "particulate organic carbon",
-        "poc",
+        "chlorophyll-a",
+        "chl",
         "ocean color",
         "observation",
-        "monthly",
+        "daily",
         "surface",
         "brazil"
     ],
@@ -82,32 +82,16 @@
     "version_successor": null,
     "bands": [
         {
-            "name": "POC",
-            "common_name": "POC",
-            "description": "Particulate Organic Carbon",
+            "name": "CHL",
+            "common_name": "Chl-a",
+            "description": "Chlorophyll-a concentration",
             "center_wavelength": null,
             "full_width_half_max": null,
             "min_value": 0,
-            "max_value": 650,
+            "max_value": 500,
             "nodata": null,
             "scale": 1.0,
-            "data_type": "float32",
-            "mime_type": "application/netcdf",
-            "resolution_x": 1.0,
-            "resolution_y": 1.0,
-            "resolution_unit": "Kilometer"
-        },
-        {
-            "name": "Nobs",
-            "common_name": "Nobs",
-            "description": "Number of valid pixel observations",
-            "center_wavelength": null,
-            "full_width_half_max": null,
-            "min_value": 0,
-            "max_value": 31,
-            "nodata": null,
-            "scale": 1.0,
-            "data_type": "int16",
+            "data_type": "float64",
             "mime_type": "application/netcdf",
             "resolution_x": 1.0,
             "resolution_y": 1.0,
@@ -126,9 +110,9 @@
         ]
     },
     "item_assets": {
-        "POC": {
+        "CHL": {
             "type": "application/netcdf",
-            "title": "Particulate Organic Carbon concentration",
+            "title": "Chlorophyll-a concentration",
             "roles": [
                 "data"
             ]
@@ -145,7 +129,8 @@
         "sources": [
             "http://www.inpe.br",
             "https://seadas.gsfc.nasa.gov/",
-            "http://www.rtatmocn.com/oc-smart/"
+            "http://www.rtatmocn.com/oc-smart/",
+            "https://github.com/manhtranduy/Chl-CONNECT/"
         ]
     }
 }

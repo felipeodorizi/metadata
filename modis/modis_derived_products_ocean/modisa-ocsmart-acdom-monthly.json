@@ -1,8 +1,8 @@
 {
     "id": null,
-    "name": "MODISA-OCSMART-aCDOM-DAILY",
-    "title": "MODIS-Aqua Daily absorption by Colored Dissolved Organic Matter (aCDOM) - OC-SMART AC",
-    "description": "The MODIS-Aqua daily absorption by Colored Dissolved Organic Matter (aCDOM, measured in m-1) utilizes daily data from the MODIS sensor onboard NASA's Aqua satellite (MODIS-Aqua). This data has a nominal resolution of 1 km at nadir and is atmospherically corrected using the Ocean Color - Simultaneous Marine and Aerosol Retrieval Tool (OC-SMART) (FAN et al., 2021). The aCDOM estimates are calculated considering the band centered at 443 nm and the algorithm developed by Bonelli et al. (2021). The daily aCDOM products are the mosaic of several images of aCDOM estimates obtained for the same day and merged into daily composites utilizing the SNAP mosaicking tool.",
+    "name": "MODISA-OCSMART-aCDOM-MONTHLY",
+    "title": "MODIS-Aqua Monthly absorption by Colored Dissolved Organic Matter (aCDOM) - OC-SMART AC",
+    "description": "The MODIS-Aqua monthly absorption by Colored Dissolved Organic Matter (aCDOM, measured in m-1) utilizes daily data from the MODIS sensor onboard NASA's Aqua satellite (MODIS-Aqua). This data has a nominal resolution of 1 km at nadir and is atmospherically corrected through the application of the Ocean Color - Simultaneous Marine and Aerosol Retrieval Tool (OC-SMART) (FAN et al., 2021). The aCDOM estimates are calculated considering the band centered at 443 nm and the algorithm developed by Bonelli et al. (2021). Subsequently, the aCDOM products are aggregated into monthly averages by calculating the geometric mean of daily aCDOM data over the respective month.",
     "temporal_composition_schema": {
         "cycle": {
             "step": 1,
@@ -10,7 +10,7 @@
         },
         "schema": "Cyclic",
         "step": 1,
-        "unit": "day"
+        "unit": "month"
     },
     "grid_ref_sys": null,
     "collection_type": "collection",
@@ -33,7 +33,7 @@
                     "host"
                 ],
                 "processing:level": "L3",
-                "processing:lineage": "Generation of daily CDOM absorption at 443 nm (aCDOM_443) estimatives based on the algorithm described by Bonelli et al. (2021) using the MODIS-Aqua earth observation satellite.",
+                "processing:lineage": "Generation of monthly CDOM absorption at 443 nm (aCDOM_443) estimatives based on the algorithm described by Bonelli et al. (2021) using the MODIS-Aqua earth observation satellite.",
                 "processing:facility": "LOG",
                 "processing:software": {
                     "SEADAS": "9.1.0",
@@ -48,7 +48,7 @@
                     "processor"
                 ],
                 "processing:level": "L3",
-                "processing:lineage": "Generation of daily CDOM absorption at 443 nm (aCDOM_443) estimatives based on the algorithm described by Bonelli et al. (2021) using the MODIS-Aqua earth observation satellite.",
+                "processing:lineage": "Generation of monthly CDOM absorption at 443 nm (aCDOM_443) estimatives based on the algorithm described by Bonelli et al. (2021) using the MODIS-Aqua earth observation satellite.",
                 "processing:facility": "LOG",
                 "processing:software": {
                     "SEADAS": "9.1.0",
@@ -59,7 +59,7 @@
         ],
         "license": {
             "type": "Creative Commons Zero (CC0)",
-            "uri": "https://oceancolor.gsfc.nasa.gov/data/10.5067/AQUA/MODIS/L2/OC/2022.0/"
+            "uri": "https://creativecommons.org/public-domain/cc0/"
         }
     },
     "keywords": [
@@ -70,7 +70,7 @@
         "aCDOM",
         "ocean color",
         "observation",
-        "daily",
+        "monthly",
         "surface",
         "brazil"
     ],
@@ -92,6 +92,22 @@
             "nodata": null,
             "scale": 1.0,
             "data_type": "float32",
+            "mime_type": "application/netcdf",
+            "resolution_x": 1.0,
+            "resolution_y": 1.0,
+            "resolution_unit": "Kilometer"
+        },
+        {
+            "name": "Nobs",
+            "common_name": "Nobs",
+            "description": "Number of valid pixel observations",
+            "center_wavelength": null,
+            "full_width_half_max": null,
+            "min_value": 0,
+            "max_value": 31,
+            "nodata": null,
+            "scale": 1.0,
+            "data_type": "int16",
             "mime_type": "application/netcdf",
             "resolution_x": 1.0,
             "resolution_y": 1.0,
@@ -129,8 +145,7 @@
         "sources": [
             "http://www.inpe.br",
             "https://seadas.gsfc.nasa.gov/",
-            "http://www.rtatmocn.com/oc-smart/",
-
+            "http://www.rtatmocn.com/oc-smart/"
         ]
     }
 }

@@ -1,5 +1,6 @@
 {
-  "id": "monan-diagnostic",
+  "id": null,
+  "name": "monan-diagnostic",
   "type": "Collection",
   "stac_version": "1.0.0",
   "stac_extensions": [
@@ -9,9 +10,8 @@
     "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
   ],
   "title": "MONAN (Model for Ocean-LaNd-Atmosphere PredictionN)",
-  "version": "1",
   "deprecated": false,
-  "description": "Unified numerical model of the Earth system...",
+  "description": "Unified numerical model of the Earth system that integrates the atmosphere, oceans, and continental surface, designed to improve weather forecasting and the analysis of extreme climate events.",
   "keywords": [
     "numerical model",
     "netcdf",
@@ -19,28 +19,44 @@
     "weather forecast",
     "precipitation"
   ],
-  "providers": [
-    {
-      "url": "https://www.cptec.inpe.br/",
-      "name": "Center for Weather Forecasting and Climate Studies (CPTEC/INPE)",
-      "roles": [
-        "producer"
-      ]
-    },
-    {
-      "url": "https://dataserver.cptec.inpe.br/dataserver_modelos//",
-      "name": "National Institute for Space Research (INPE)",
-      "roles": [
-        "host",
-        "producer",
-        "processor",
-        "licensor"
-      ],
-      "processing:level": "L4",
-      "processing:lineage": "Generation of MONAN meteorological model",
-      "processing:facility": "CPTEC/INPE"
+  "temporal_composition_schema": null,
+  "composition_function": null,
+  "grid_ref_sys": null,
+  "collection_type": "collection",
+  "metadata": {
+    "providers": [
+      {
+        "url": "https://www.cptec.inpe.br/",
+        "name": "Center for Weather Forecasting and Climate Studies (CPTEC/INPE)",
+        "roles": [
+          "producer"
+        ]
+      },
+      {
+        "url": "https://dataserver.cptec.inpe.br/dataserver_modelos//",
+        "name": "National Institute for Space Research (INPE)",
+        "roles": [
+          "host",
+          "producer",
+          "processor",
+          "licensor"
+        ],
+        "processing:level": "L4",
+        "processing:lineage": "Generation of MONAN meteorological model",
+        "processing:facility": "CPTEC/INPE"
+      }
+    ],
+    "license": {
+      "type": "Creative Commons Attribution 4.0 International",
+      "uri": "https://creativecommons.org/licenses/by/4.0/"
     }
-  ],
+  },
+  "is_public": true,
+  "is_available": true,
+  "category": "eo",
+  "version": 1,
+  "version_predecessor": null,
+  "version_successor": null,
   "summaries": {
     "processing:facility": [
       "INPE-MONAN"
@@ -111,7 +127,27 @@
       300.0
     ]
   },
-  "license": "CC-BY-4.0",
+  "bands": {
+    "type": "bands",
+    "values": []
+  },
+  "item_assets": {
+    "monan-diagnostic": {
+      "type": "application/netcdf",
+      "roles": [
+        "data"
+      ],
+      "title": "MONAN - (Model for Ocean-LaNd-Atmosphere PredictionN) netCDF File"
+    },
+    "thumbnail": {
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail"
+    }
+  },
+  "properties": {},
   "extent": {
     "spatial": {
       "bbox": [

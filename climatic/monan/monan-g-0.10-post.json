@@ -8,7 +8,7 @@
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
     "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
   ],
-  "title": "MONAN (Model for Ocean-LaNd-Atmosphere PredictionN)",
+  "title": "MONAN (Model for Ocean-LaNd-Atmosphere PredictioN)",
   "deprecated": false,
   "description": "Unified numerical model of the Earth system that integrates the atmosphere, oceans, and continental surface, designed to improve weather forecasting and the analysis of extreme climate events.",
   "keywords": [

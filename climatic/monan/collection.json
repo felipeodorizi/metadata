@@ -1,7 +1,6 @@
 {
   "id": null,
   "name": "monan-diagnostic",
-  "type": "Collection",
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/version/v1.0.0/schema.json",
@@ -159,14 +158,6 @@
         ]
       ]
     },
-    "temporal": {
-      "interval": [
-        [
-          "2026-05-27T00:00:00Z",
-          "2026-06-07T00:00:00Z"
-        ]
-      ]
-    }
   },
   "links": [
     {
